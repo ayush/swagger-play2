@@ -1,6 +1,6 @@
 Swagger for Play 2.0 Apps
 
-INSTALLATION
+>>>>>INSTALLATION
 0. This works with Play 2.0 RC1 SNAPSHOT. So, clone https://github.com/playframework/play20 and build from source using instructions at https://github.com/playframework/Play20/wiki/Installing
 
 1. Clone, build and deploy this fork of swagger-core using "ant deploy". This fork works with scala 2.9.1 which Play 2.0 requires and has additional annotations for supporitng Play 2.0 style controllers.
@@ -15,7 +15,7 @@ https://github.com/ayush/swagger-core
 
 5. In YOUR APP, do reload/update and swagger-play2 should be present.
 
-USAGE - routes file
+>>>>>USAGE - routes file
 in YOUR APP's routes add these lines:
 # Swagger - Root Resources Listing
 GET  /resources.json  		controllers.ApiHelpController.getResources
@@ -30,8 +30,7 @@ GET  /admin.xml/health			controllers.AdminController.getHealth()
 GET  /admin.json/ping			controllers.AdminController.ping()
 GET  /admin.xml/ping			controllers.AdminController.ping()
 
-USAGE - controllers
-
+>>>>>USAGE - controllers
 For Swagger to recognize your controller methods as API point, you can add the following annotations to a controller method:
   @Path("/add-employee")  
   @ApiOperation(value = "Add a new employee", notes = "", responseClass = "string", httpMethod = "POST")
