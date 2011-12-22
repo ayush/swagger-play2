@@ -15,7 +15,7 @@ https://github.com/ayush/swagger-core
 
 5. In YOUR APP, do reload/update and swagger-play2 should be present.
 
-USAGE
+USAGE - routes file
 in YOUR APP's routes add these lines:
 # Swagger - Root Resources Listing
 GET  /resources.json  		controllers.ApiHelpController.getResources
@@ -29,3 +29,17 @@ GET  /admin.json/health			controllers.AdminController.getHealth()
 GET  /admin.xml/health			controllers.AdminController.getHealth()
 GET  /admin.json/ping			controllers.AdminController.ping()
 GET  /admin.xml/ping			controllers.AdminController.ping()
+
+USAGE - controllers
+
+For Swagger to recognize your controller methods as API point, you can add the following annotations to a controller method:
+  @Path("/add-employee")  
+  @ApiOperation(value = "Add a new employee", notes = "", responseClass = "string", httpMethod = "POST")
+  @ApiParamsImplicit(Array( 
+  new ApiParamImplicit(name = "id", value = "id of employee", required = true, dataType = "string", paramType = "query"),
+  	new ApiParamImplicit(name = "name", value = "Name of employee", required = true, dataType = "string", paramType = "query"),
+  	new ApiParamImplicit(name = "salary", value = "The salary which the poor soul gets", required = true, dataType = "string", paramType = "query")
+  ))
+  def addEmployee() = Action { implicit request =>
+     // get the params and do the jig
+  }
