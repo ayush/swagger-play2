@@ -41,7 +41,6 @@ object PlayApiReader {
             routes map {
                 route => {
                     val routeName = route.call.packageName + "." + route.call.controller + "$." + route.call.method
-                    Logger info "route:" + routeName
                     (routeName, route)
                 }
             } toMap
@@ -68,16 +67,15 @@ private class PlayApiSpecParser(hostClass: Class[_], apiVersion: String, swagger
           }
         }
       } mkString
-      case None => Logger info "Cannot determine Path. Nothing defined in play routes file for api method " + method.toString; this.resourcePath
+      case None => Logger error "Cannot determine Path. Nothing defined in play routes file for api method " + method.toString; this.resourcePath
     }
   }
   override protected def processOperation(method: Method, o: DocumentationOperation) = {
     val fullMethodName = method.getDeclaringClass.getCanonicalName + "." + method.getName
-    Logger info fullMethodName
     val lookup = PlayApiReader.routesCache.get(fullMethodName)
     lookup match {
       case Some(route) => o.httpMethod = route.verb.value
-      case None => Logger info "Could not find route " + fullMethodName
+      case None => Logger error "Could not find route " + fullMethodName
     }
     o
   }
