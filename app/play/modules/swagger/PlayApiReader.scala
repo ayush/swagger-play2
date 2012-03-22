@@ -8,6 +8,8 @@ import play.api.Logger
 import play.core.Router.RoutesCompiler.Route
 import play.core.Router.DynamicPart
 import play.core.Router.StaticPart
+import scala.io.Source
+
 
 /**
   * Caches and retrieves API information for a given Swagger compatible class
@@ -32,8 +34,9 @@ object PlayApiReader {
   }
 
   private def populateRoutesCache : Map[String,Route] = {
-    val routesFile = Path(new File("conf/routes"))
-    val routesString = routesFile.slurpString
+    val classLoader = this.getClass.getClassLoader
+    val routesStream = classLoader.getResourceAsStream("routes")
+    val routesString = Source.fromInputStream(routesStream).getLines().mkString("\n")
     val parser = new RouteFileParser
     val parsedRoutes = parser.parse(routesString)
     parsedRoutes match {
