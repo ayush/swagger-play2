@@ -1,19 +1,20 @@
 Swagger for Play 2.0 Apps
 
 >>>>>INSTALLATION
-0. This works with Play 2.0 RC1 SNAPSHOT. So, clone https://github.com/playframework/play20 and build from source using instructions at https://github.com/playframework/Play20/wiki/Installing
+0. This works with Play 2.0 
 
-1. Clone, build and deploy this fork of swagger-core using "ant deploy". This fork works with scala 2.9.1 which Play 2.0 requires and has additional annotations for supporitng Play 2.0 style controllers.
-https://github.com/ayush/swagger-core
+1. Clone and build branch scala-2.9.1-1 of wordnik-oss project from https://github.com/wordnik/wordnik-oss: 'git checkout --track remotes/origin/scala-2.9.1-1'. Build using mvn clean install. You may need to do mvn -N the first time.
 
-2. Clone swagger-play2 from https://github.com/ayush/swagger-play2
+2. Clone and build branch scala-2.9.1-1 of swagger-core project from https://github.com/wordnik/swagger-core: 'git checkout --track remotes/origin/scala-2.9.1-1'. Build using mvn clean install. You may need to do mvn -N the first time.
 
-3. Deploy swagger-play2 using play2's publish-local command
+3. Clone swagger-play2 from https://github.com/ayush/swagger-play2
 
-4. In YOUR APP's Build.scala, add this dependency
+4. Deploy swagger-play2 using play2's publish-local command
+
+5. In YOUR APP's Build.scala, add this dependency
   	"swagger-play2" %% "swagger-play2" % "1.0"
 
-5. In YOUR APP, do reload/update and swagger-play2 should be present.
+6. In YOUR APP, do reload/update and swagger-play2 should be present.
 
 >>>>>USAGE - routes file
 in YOUR APP's routes add these lines:
