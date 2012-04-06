@@ -13,7 +13,7 @@ object ApplicationBuild extends Build {
 	  "org.codehaus.jackson" % "jackson-mapper-asl" % "1.7.1",
 	  "org.codehaus.jackson" % "jackson-core-asl" % "1.7.1",
       "org.slf4j" % "slf4j-api" % "1.6.4",
-      "com.wordnik" %% "swagger-core" % "1.02-SNAPSHOT",
+      "com.wordnik" % "swagger-core" % "1.1-SNAPSHOT.121132",
       "javax.ws.rs" % "jsr311-api" % "1.1.1"
     )
 
