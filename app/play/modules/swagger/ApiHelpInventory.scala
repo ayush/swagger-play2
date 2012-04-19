@@ -1,14 +1,19 @@
 package play.modules.swagger
 
-import scala.Predef._
-import org.codehaus.jackson.map.ObjectMapper
-import scala.collection.JavaConversions._
-import play.api.Play.current
-import play.api.Logger
-import collection.mutable.ListBuffer
 import com.wordnik.swagger.core._
+import com.wordnik.swagger.play._
+
+import org.codehaus.jackson.map.ObjectMapper
+
 import javax.xml.bind.JAXBContext
 import java.io.StringWriter
+
+import play.api.Play.current
+import play.api.Logger
+
+import scala.collection.mutable.ListBuffer
+import scala.Predef._
+import scala.collection.JavaConversions._
 
 /**
   * Exposes two primay methods: to get a list of available resources and to get details on a given resource
@@ -87,7 +92,7 @@ object ApiHelpInventory {
 	    Logger.debug("Loading resource " + resourceName + " from " + clazz + " @ " + currentApiPath)
 
         val docs = new HelpApi(apiFilterClassName).filterDocs(
-          PlayApiReader.read(clazz, apiVersion, swaggerVersion, basePath, currentApiPath), null, null, currentApiPath)
+          PlayApiReader.read(clazz, apiVersion, swaggerVersion, basePath, currentApiPath), null, null, currentApiPath, null)
 
         Option(docs)
       }
