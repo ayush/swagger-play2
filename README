@@ -1,3 +1,15 @@
+NOTE: This is not longer maintained
+
+We've moved the official swagger-play2 module to here:
+
+https://github.com/wordnik/swagger-core/tree/master/modules/swagger-play2
+
+There is also a sample project to get you started:
+
+https://github.com/wordnik/swagger-core/tree/master/samples/scala-play2
+
+
+****************************************************
 Swagger for Play 2.0 Apps
 
 >>>>>INSTALLATION
